@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "flashCardFront": "Object flying that can land above buildings",
+      "flashCardBack": "Helicopter",
+      "flashCardFlipped": false,
+      "answers": [
+        {"answer": "Helicopter", "correct": true, "selected": false},
+        {"answer": "Plane", "correct": false, "selected": false},
+        {"answer": "Truck", "correct": false, "selected": false}
+      ]
+    },
+    {
+      "flashCardFront": "Object flying long distances (country to country) fast",
+      "flashCardBack": "Plane",
+      "flashCardFlipped": false,
+      "answers": [
+        {"answer": "Helicopter", "correct": false, "selected": false},
+        {"answer": "Plane", "correct": true, "selected": false},
+        {"answer": "Truck", "correct": false, "selected": false}
+      ]
+    },
+    {
+      "flashCardFront": "A big car",
+      "flashCardBack": "Truck",
+      "flashCardFlipped": false,
+      "answers": [
+        {"answer": "Helicopter", "correct": false, "selected": false},
+        {"answer": "Plane", "correct": false, "selected": false},
+        {"answer": "Truck", "correct": true, "selected": false}
+      ]
+    }
+  ]
+}

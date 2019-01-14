@@ -1,14 +1,46 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      QUIZZ by Florian & Warren
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-slides #slides>
+    <ion-slide class="start-slide">
+      <button ion-button color="primary" (click)="nextSlide('easy')">Easy</button>
+      <button ion-button color="primary" (click)="nextSlide('medium')">Medium</button>
+      <button ion-button color="primary" (click)="nextSlide('hard')">Hard</button>
+    </ion-slide>
+
+    <ion-slide *ngFor="let question of questions; let i = index;">
+      <div ion-row>
+        <h3 ion-col>Question {{ i+1 }}</h3>
+        <h3 ion-col>{{ time }}</h3>
+        <h3 ion-col>Score: {{ score }}</h3>
+      </div>
+
+      <flash-card [isFlipped]="question.flashCardFlipped">
+        <div class="flash-card-front" [innerHTML]="question.question"></div>
+        <div class="flash-card-back" [innerHTML]="question.correct_answer"></div>
+      </flash-card>
+
+      <h3></h3>
+
+      <ion-list no-lines radio-group>
+        <ion-item *ngFor="let answer of question.answers; let i = index;">
+          <ion-label>{{ i+1 }}. {{ answer.answer }}</ion-label>
+          <ion-radio (click)="selectAnswer(answer, question)" [checked]="answer.selected" [disabled]="hasAnswered"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide>
+      <h2>Final Score: {{ score }}</h2>
+      <button (click)="restartQuiz()" ion-button full color="primary">Start Again</button>
+    </ion-slide>
+
+  </ion-slides>
+
 </ion-content>
